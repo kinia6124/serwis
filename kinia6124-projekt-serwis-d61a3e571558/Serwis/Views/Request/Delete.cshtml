@@ -1,0 +1,80 @@
+﻿@model Serwis.Models.Request
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Czy na pewno chcesz usunąć zgłoszenie?</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Klient
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.ImięNazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Typ_urządzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typ_urządzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis_usterki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis_usterki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uwagi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uwagi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Czy_gwarancja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Czy_gwarancja)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

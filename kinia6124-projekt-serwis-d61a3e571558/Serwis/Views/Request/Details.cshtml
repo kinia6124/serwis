@@ -1,0 +1,75 @@
+﻿@model Serwis.Models.Request
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+
+<h2>Szczegóły zgłoszenia</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Klient
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.ImięNazwisko)
+        </dd>
+
+        <dt>
+            Numer pracownika
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Typ_urządzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typ_urządzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis_usterki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis_usterki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uwagi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uwagi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Czy_gwarancja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Czy_gwarancja)
+        </dd>
+       
+       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

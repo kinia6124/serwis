@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Serwis.ViewModel.RequestStatistic>
+
+@{
+    ViewBag.Title = "Statystyki zgłoszeń klientów";
+}
+<h2>Statystyki zgłoszeń klientów</h2>
+
+<table>
+    <tr>
+        <th>
+            Numer Klienta
+        </th>
+        <th>
+               
+        </th>
+        <th>
+            Zgłoszenia
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model =>item.ClientID)
+            </td>
+            <td>
+                @item.RequestCount
+            </td>
+        </tr>
+    }
+
+</table>

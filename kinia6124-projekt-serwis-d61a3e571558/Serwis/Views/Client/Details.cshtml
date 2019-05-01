@@ -1,0 +1,104 @@
+﻿@model Serwis.Models.Client
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+
+<h2>Szczegóły</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imię)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Imię)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Miasto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nr_telefonu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nr_telefonu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres_email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adres_email)
+        </dd>
+        <br />
+
+        <dt>
+            Informacje o statusie naprawy
+        </dt>
+        <dd>
+            <table class="table">
+                @foreach (var item in Model.Repair_statuses)
+                {
+                    <tr>
+                        <td>Numer zgłoszenia: </td>
+                        <td>@Html.DisplayFor(modelItem => item.RequestID)</td>
+                    </tr>
+                    <tr>
+                        <td>Status naprawy: </td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    </tr>
+                    <tr>
+                        <td>Opis naprawy: </td>
+                        <td>@Html.DisplayFor(modelItem => item.Opis_naprawy)</td>
+                    </tr>
+                 }
+            </table>
+        </dd>
+        <dt>
+            Informacje o zgłoszeniu
+        </dt>
+        <dd>
+            <table class="table">
+                @foreach (var item in Model.Requests)
+                {
+                    <tr>
+                        <td>Typ urządzenia: </td>
+                        <td>@Html.DisplayFor(modelItem => item.Typ_urządzenia)</td>
+                    </tr>
+                    <tr>
+                        <td>Model: </td>
+                        <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                    </tr>
+                    <tr>
+                        <td>Opis usterki: </td>
+                        <td>@Html.DisplayFor(modelItem => item.Opis_usterki)</td>
+                    </tr>
+                    <tr>
+                        <td>Uwagi: </td>
+                        <td>@Html.DisplayFor(modelItem => item.Uwagi)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

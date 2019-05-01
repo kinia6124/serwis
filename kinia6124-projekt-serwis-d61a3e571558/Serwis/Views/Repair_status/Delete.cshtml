@@ -1,0 +1,71 @@
+﻿@model Serwis.Models.Repair_status
+
+@{
+    ViewBag.Title = "Usuń";
+}
+
+<h2>Usuń</h2>
+
+<h3>Czy na pewno usunąć status naprawy?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_rozpoczęcia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_rozpoczęcia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_zakończenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_zakończenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis_naprawy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis_naprawy)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

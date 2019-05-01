@@ -1,0 +1,56 @@
+﻿@model Serwis.Models.Employee
+
+@{
+    ViewBag.Title = "Usuń";
+}
+
+<h2>Usuń</h2>
+
+<h3>Czy na pewno usunąć pracownika?</h3>
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stanowisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stanowisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres_email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

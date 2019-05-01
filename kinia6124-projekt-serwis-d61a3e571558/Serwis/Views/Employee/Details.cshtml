@@ -1,0 +1,75 @@
+﻿@model Serwis.Models.Employee
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+
+<h2>Szczegóły</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stanowisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stanowisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres_email)
+        </dd>
+        <br />
+
+        <dt>
+            Zgłoszenia przyjete przez pracownika
+        </dt>
+        <dd>
+            <table class="table">
+
+                @foreach (var item in Model.Requests)
+                {
+                <tr>
+                    <td>Numer zgłoszenia: </td>
+                    <td>Klient: </td>
+                    <td>Opis usterki: </td>
+                 
+                </tr>
+                    <tr><td>@Html.DisplayFor(modelItem => item.ID)</td>
+                        
+                        <td>@Html.DisplayFor(modelItem => item.Client.ImięNazwisko)</td>
+                   
+                        
+                        <td>@Html.DisplayFor(modelItem => item.Opis_usterki)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

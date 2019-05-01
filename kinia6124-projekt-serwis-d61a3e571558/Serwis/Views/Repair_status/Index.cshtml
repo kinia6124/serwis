@@ -1,0 +1,71 @@
+﻿@model PagedList.IPagedList<Serwis.Models.Repair_status>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Status naprawy";
+}
+
+<h2>Rozpoczęte zgłoszenia</h2>
+
+<p>
+    @Html.ActionLink("Dodaj nowy", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Klient
+        </th>
+        <th>
+            Numer zgłoszenia
+        </th>
+        <th>
+            Data rozpoczęcia
+        </th>
+        <th>
+            Data zakończenia
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Opis_naprawy
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ImięNazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_rozpoczęcia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_zakończenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis_naprawy)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter}))
