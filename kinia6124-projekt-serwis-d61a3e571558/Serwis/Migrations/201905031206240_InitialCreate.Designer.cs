@@ -7,13 +7,13 @@ namespace Serwis.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DataMigration : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DataMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806230958275_DataMigration"; }
+            get { return "201905031206240_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
